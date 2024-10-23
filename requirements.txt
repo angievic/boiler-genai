@@ -1,0 +1,11 @@
+fastapi[standard]
+uvicorn
+sqlmodel
+psycopg2-binary
+alembic
+sqlmodel
+psycopg2
+celery
+redis
+boto3
+sendgrid

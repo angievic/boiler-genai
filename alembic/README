@@ -1,0 +1,14 @@
+Run migrations:
+
+```
+docker exec -it id-container-api /bin/sh
+alembic revision --autogenerate -m "Initial migration"
+alembic upgrade head
+```
+
+Inside the container to access the database:
+
+```
+su - postgres
+psql -U admin -d datagen
+```

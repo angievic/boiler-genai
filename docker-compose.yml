@@ -1,0 +1,57 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123asd456
+      POSTGRES_DB: testdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  api:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DATABASE_URL=postgresql://admin:123asd456@db/testdb
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=redis://redis:6379
+      - CELERY_RESULT_BACKEND=redis://redis:6379
+      - AWS_DEFAULT_REGION=REGION
+      - AWS_ACCESS_KEY_ID=ACCESS_KEY
+      - AWS_SECRET_ACCESS_KEY=SECRET_KEY
+
+  celery_worker:
+    build: .
+    command: celery -A celery_app worker --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - api
+      - redis
+    environment:
+      - DATABASE_URL=postgresql://admin:123asd456@db/testdb
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=redis://redis:6379
+      - CELERY_RESULT_BACKEND=redis://redis:6379
+      - AWS_DEFAULT_REGION=REGION
+      - AWS_ACCESS_KEY_ID=ACCESS_KEY
+      - AWS_SECRET_ACCESS_KEY=SECRET_KEY
+
+volumes:
+  postgres_data:
+  redis_data:
