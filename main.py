@@ -2,7 +2,7 @@ from fastapi import Depends, FastAPI,HTTPException
 from fastapi.responses import JSONResponse
 from sqlmodel import Session
 from database import create_db_and_tables, get_session
-from models import PersonDataRequest
+from models import PersonDataRequest, Person
 import crud
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -46,4 +46,6 @@ async def create_person(
     except Exception as e:
         print(e,"error in exception")
         raise HTTPException(status_code=500, detail=str(e))
+
+
 

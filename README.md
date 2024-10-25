@@ -55,3 +55,11 @@ with the following body:
   "last_name": "Doe"
 }
 ```
+
+For amazon bedrock, the credentials are:
+
+```
+AWS_DEFAULT_REGION=us-east-1
+AWS_ACCESS_KEY_ID=ID
+AWS_SECRET_ACCESS_KEY=KEY
+```

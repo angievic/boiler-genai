@@ -9,3 +9,5 @@ celery
 redis
 boto3
 sendgrid
+chromadb
+PyPDF2
