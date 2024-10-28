@@ -34,10 +34,16 @@ Redis is in redis service and can be accessed with the following route:
 redis://localhost:6379
 ```
 
-This apps runs on port 8080 and can be accessed with the following route:
+This api runs on port 8080 and can be accessed with the following route:
 
 ```
 http://localhost:8080/
+```
+
+This UI with streamlit runs on port 8081 and can be accessed with the following route:
+
+```
+http://localhost:8081/
 ```
 
 To create a person, send a POST request to the following endpoint:
