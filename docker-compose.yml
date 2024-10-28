@@ -23,6 +23,7 @@ services:
       - .:/app
     ports:
       - "8080:8000"
+      - "8081:8501"
     depends_on:
       - db
       - redis
@@ -32,9 +33,8 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379
       - CELERY_RESULT_BACKEND=redis://redis:6379
       - AWS_DEFAULT_REGION=REGION
-      - AWS_ACCESS_KEY_ID=ACCESS_KEY
-      - AWS_SECRET_ACCESS_KEY=SECRET_KEY
-
+      - AWS_ACCESS_KEY_ID=KEY_ID
+      - AWS_SECRET_ACCESS_KEY=ACCESS_KEY
   celery_worker:
     build: .
     command: celery -A celery_app worker --loglevel=info
@@ -49,8 +49,8 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379
       - CELERY_RESULT_BACKEND=redis://redis:6379
       - AWS_DEFAULT_REGION=REGION
-      - AWS_ACCESS_KEY_ID=ACCESS_KEY
-      - AWS_SECRET_ACCESS_KEY=SECRET_KEY
+      - AWS_ACCESS_KEY_ID=KEY_ID
+      - AWS_SECRET_ACCESS_KEY=ACCESS_KEY
 
 volumes:
   postgres_data:

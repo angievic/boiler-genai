@@ -47,7 +47,7 @@ for index in range(number_chunks):
         documents=[text_chunk],
         ids=[str(uuid.uuid4())]
     )
-    print("--------------------------------","batch",index,"of",number_chunks)
+    print("--------------------------------","batch",index,"of",number_chunks-1)
 
 # Define the input prompt of the user   
 input_prompt = "Como puedo cambiar mi contraseña?"

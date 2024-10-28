@@ -11,3 +11,5 @@ boto3
 sendgrid
 chromadb
 PyPDF2
+pandas
+streamlit
