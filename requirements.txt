@@ -13,3 +13,6 @@ chromadb
 PyPDF2
 pandas
 streamlit
+langgraph
+langchain
+langchain_aws
