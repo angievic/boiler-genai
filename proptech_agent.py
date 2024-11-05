@@ -1,8 +1,8 @@
-from pydantic import BaseModel, Field
-from langchain_core.tools.structured import StructuredTool
+from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_aws import ChatBedrock
-from langgraph.prebuilt import create_react_agent
+from langchain_core.tools.structured import StructuredTool
+from pydantic import BaseModel, Field
 
 properties_data = {         
     "123":"available",
@@ -12,14 +12,14 @@ properties_data = {
 
 property_calendar_data = {
     "123": ["2024-10-30 10:00", "2024-10-31 11:00"],
-    "456": ["2024-10-30 14:00", "2024-10-31 15:00", "2024-11-01 16:00"],
-    "789": ["2024-10-30 10:00", "2024-10-31 11:00"]
+    "456": ["2024-11-01 14:00", "2024-11-02 15:00", "2024-11-03 16:00"],
+    "789": ["2024-11-01 10:00", "2024-11-02 11:00"]
 }
 
 property_visit_data = {
     "123": ["2024-10-30 10:00", "2024-10-31 11:00"],
-    "456": ["2024-10-30 14:00", "2024-10-31 15:00", "2024-11-01 16:00"],
-    "789": ["2024-10-30 10:00", "2024-10-31 11:00"]
+    "456": ["2024-11-01 14:00", "2024-11-02 15:00", "2024-11-03 16:00"],
+    "789": ["2024-11-01 10:00", "2024-11-02 11:00"]
 }
 
 property_details_data = {
@@ -28,21 +28,6 @@ property_details_data = {
     "789": {"address": "Riomar", "city": "Barranquilla", "state": "Colombia", "zip": "84736", "owner": "Maria Gomez", "price": "$1200", "description": "A nice apartment with a pool", "amenities": ["wifi", "tv", "pool"]}
 }
 
-class PropertyIdSchema(BaseModel):
-    """Inputs to the property availability, calendar and details tools."""
-    id: str = Field(
-        description="The id of the property to check availability, calendar or details"
-    )
-    
-class DateTimeSchema(BaseModel):  
-    """Inputs to the property visit tool."""
-    id: str = Field(
-        description="The id of the property to set a visit"
-    )
-    date_time: str = Field(
-        description="The date and time to set a visit"
-    )
-    
 def respond_to_user(message: str):
     return f"Respond to the user using the followind data: <data>{message}</data> Dont use a tool call to answer, just respond to the user using the data provided. Answer always in spanish."
 
@@ -101,6 +86,21 @@ def get_property_details_aux(property_id: str):
     else:
         return respond_to_user(f"The property with id {property_id} was not found")
 
+class PropertyIdSchema(BaseModel):
+    """Inputs to the property availability, calendar and details tools."""
+    id: str = Field(
+        description="The id of the property to check availability, calendar or details"
+    )
+    
+class DateTimeSchema(BaseModel):  
+    """Inputs to the property visit tool."""
+    id: str = Field(
+        description="The id of the property to set a visit"
+    )
+    date_time: str = Field(
+        description="The date and time to set a visit"
+    )
+
 # Convert each function into a structured tool
 check_property_availability_tool = StructuredTool.from_function(
     func=check_property_availability,
@@ -152,5 +152,8 @@ Conditions to call the tools:
 - Dont call set_property_visit_tool if the property it not available.
 """
 
-#tool_node = ToolNode(name="tools", tools=TOOLS, messages_key="messages")
+
 graph_builder = create_react_agent(llm, tools=TOOLS, state_modifier=PROMPT_SYSTEM,checkpointer=MemorySaver())
+
+
+
