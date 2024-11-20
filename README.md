@@ -1,3 +1,24 @@
+# Boiler GenAI
+
+Description: This is a boilerplate for building genai applications.
+You will find examples of how to build applications in the following folders:
+
+- fintech
+- foodtech
+- proptech
+
+Some of the tools and libraries used are:
+
+- Datagen (for generating data) link: https://datagen.shadai.ai
+- LangSmith (for tracing)
+- LangGraph (for building agents)
+- LangChain (for building assistants)
+- ChromaDB (for vector search)
+- FastAPI (for the api)
+- Streamlit (for the ui)
+- AWS Bedrock (for the llm)
+- Claude LLM (for the llm)
+
 Run the following command to start the application:
 
 ```
