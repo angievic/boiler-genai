@@ -21,3 +21,4 @@ def send_email(to_email, subject, html_content):
     except Exception as e:
         print(f"Error sending email: {e}")
         return False
+

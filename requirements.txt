@@ -16,3 +16,6 @@ streamlit
 langgraph
 langchain
 langchain_aws
+matplotlib
+seaborn
+numpy
