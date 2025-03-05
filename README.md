@@ -6,6 +6,8 @@ You will find examples of how to build applications in the following folders:
 - fintech
 - foodtech
 - proptech
+- similarity
+- retail
 
 Some of the tools and libraries used are:
 

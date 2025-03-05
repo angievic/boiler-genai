@@ -1,0 +1,32 @@
+{
+    "products": [
+        {
+            "product_id": "1",
+            "name": "Luxury Sedan X500",
+            "type": "Sedan",
+            "price": 45999.99,
+            "description": "Premium sedan with leather interior, advanced safety features, and hybrid powertrain."
+        },
+        {
+            "product_id": "2",
+            "name": "Adventure SUV Pro",
+            "type": "SUV",
+            "price": 52999.99,
+            "description": "Spacious family SUV with all-wheel drive, third-row seating, and advanced entertainment system."
+        },
+        {
+            "product_id": "3",
+            "name": "Sport Coupe GT",
+            "type": "Coupe",
+            "price": 65999.99,
+            "description": "High-performance sports car with turbocharged engine, sport suspension, and aerodynamic design."
+        },
+        {
+            "product_id": "4",
+            "name": "Electric Vision EV",
+            "type": "Electric",
+            "price": 39999.99,
+            "description": "All-electric vehicle with 300-mile range, fast charging capability, and autonomous driving features."
+        }
+    ]
+}

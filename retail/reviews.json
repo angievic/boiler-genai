@@ -1,0 +1,39 @@
+{
+    "reviews": [
+        {
+            "product_id": "1",
+            "product_name": "Luxury Sedan X500",
+            "customer_id": "customer123",
+            "rating": 5,
+            "comment": "The Luxury Sedan X500 is incredible! The hybrid powertrain gives amazing fuel economy and the leather interior is luxurious."
+        },
+        {
+            "product_id": "1",
+            "product_name": "Luxury Sedan X500",
+            "customer_id": "customer456",
+            "rating": 4,
+            "comment": "Great car with excellent safety features, though it's on the higher end of the price range."
+        },
+        {
+            "product_id": "2",
+            "product_name": "Adventure SUV Pro",
+            "customer_id": "customer789",
+            "rating": 5,
+            "comment": "Adventure SUV Pro is perfect for our family of 6. The third-row seating and entertainment system keep everyone happy on long trips!"
+        },
+        {
+            "product_id": "3",
+            "product_name": "Sport Coupe GT",
+            "customer_id": "customer123",
+            "rating": 5,
+            "comment": "The Sport Coupe GT is a beast! The turbo engine and sport suspension make every drive exciting."
+        },
+        {
+            "product_id": "4",
+            "product_name": "Electric Vision EV",
+            "customer_id": "customer456",
+            "rating": 5,
+            "comment": "Switched to the Electric Vision EV and couldn't be happier. The range is as advertised and the autonomous features work great."
+        }
+    ]
+}
