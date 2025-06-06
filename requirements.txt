@@ -19,3 +19,5 @@ langchain_aws
 matplotlib
 seaborn
 numpy
+gTTS
+moviepy

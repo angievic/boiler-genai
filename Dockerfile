@@ -17,4 +17,4 @@ COPY . .
 # Set Python path
 ENV PYTHONPATH=/app
 
-CMD ["sh", "-c","fastapi run main.py & streamlit run ./retail/chat_multiagent.py --server.port=8501"]
+CMD ["sh", "-c","fastapi run main.py & streamlit run ./edtech/generate_educational_video.py --server.port=8501"]
